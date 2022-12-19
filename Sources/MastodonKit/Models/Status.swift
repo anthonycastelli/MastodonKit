@@ -93,3 +93,5 @@ public class Status: Codable, Hashable {
         hasher.combine(ObjectIdentifier(self))
     }
 }
+
+extension Status: Identifiable { }

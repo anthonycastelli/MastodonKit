@@ -25,3 +25,5 @@ public struct  ClientApplication: Codable, Hashable {
         case clientSecret = "client_secret"
     }
 }
+
+extension ClientApplication: Identifiable { }

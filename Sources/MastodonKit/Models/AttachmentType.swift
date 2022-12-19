@@ -20,3 +20,9 @@ public enum AttachmentType: String, Codable, Hashable {
     /// The attachment contains an unknown image file.
     case unknown
 }
+
+extension AttachmentType: CaseIterable { }
+
+extension AttachmentType: Identifiable {
+    public var id: AttachmentType { self }
+}

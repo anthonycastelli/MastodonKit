@@ -19,3 +19,5 @@ public struct Report: Codable, Hashable {
         case actionTaken = "action_taken"
     }
 }
+
+extension Report: Identifiable { }

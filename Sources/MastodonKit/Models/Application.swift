@@ -14,3 +14,7 @@ public struct Application: Codable, Hashable {
     /// Homepage URL of the app.
     public let website: String?
 }
+
+extension Application: Identifiable {
+    public var id: String { self.name }
+}

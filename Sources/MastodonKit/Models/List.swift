@@ -14,3 +14,5 @@ public struct List: Codable, Hashable {
     /// The Title of the list.
     public let title: String
 }
+
+extension List: Identifiable { }

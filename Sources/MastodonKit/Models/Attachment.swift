@@ -68,3 +68,5 @@ public struct  Attachment: Codable, Hashable {
         case meta
     }
 }
+
+extension Attachment: Identifiable { }

@@ -28,3 +28,5 @@ public struct Notification: Codable, Hashable {
         case status
     }
 }
+
+extension Notification: Identifiable { }

@@ -30,3 +30,13 @@ public enum Visibility: String, Codable, Hashable {
     /// - Federates to other instances: Only remote @mentions.
     case direct
 }
+
+extension Visibility: CaseIterable {
+    public static var allCases: [Visibility] = [
+        .public, .unlisted, .private, .direct
+    ]
+}
+
+extension Visibility: Identifiable {
+    public var id: Visibility { self }
+}

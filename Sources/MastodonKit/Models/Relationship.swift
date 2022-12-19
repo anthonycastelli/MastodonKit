@@ -37,3 +37,5 @@ public struct Relationship: Codable, Hashable {
         case domainBlocking = "domain_blocking"
     }
 }
+
+extension Relationship: Identifiable { }

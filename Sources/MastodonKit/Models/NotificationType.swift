@@ -17,4 +17,16 @@ public enum NotificationType: String, Codable, Hashable {
     case favourite
     /// The user has a new follower.
     case follow
+    /// When a user posts a status
+    case status
+    /// A poll notification
+    case poll
+    /// Update status type
+    case update
+}
+
+extension NotificationType: CaseIterable { }
+
+extension NotificationType: Identifiable {
+    public var id: NotificationType { self }
 }

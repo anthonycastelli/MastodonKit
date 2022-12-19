@@ -71,3 +71,5 @@ public struct Account: Codable, Hashable {
         case _emojis = "emojis"
     }
 }
+
+extension Account: Identifiable { }

@@ -18,3 +18,5 @@ public struct Mention: Codable, Hashable {
     /// URL of user's profile (can be remote).
     public let url: String
 }
+
+extension Mention: Identifiable { }

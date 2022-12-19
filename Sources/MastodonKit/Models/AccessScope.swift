@@ -18,3 +18,9 @@ public enum AccessScope: String, Codable, Hashable {
     /// Allows subscribing to push notifications.
     case push
 }
+
+extension AccessScope: CaseIterable { }
+
+extension AccessScope: Identifiable {
+    public var id: AccessScope { self }
+}
