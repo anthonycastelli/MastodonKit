@@ -37,6 +37,22 @@ class NotificationsTests: XCTestCase {
         XCTAssertTrue(request.method.queryItems!.contains(expectedMaxID))
         XCTAssertTrue(request.method.queryItems!.contains(expectedLimit))
     }
+    
+    func testAllWithExcludingTypes() {
+        let request = Notifications.all(excludingTypes: [.mention, .followRequest])
+        let expectedMention = URLQueryItem(name: "exclude_types[]", value: "mention")
+        let expectedFollowRequest = URLQueryItem(name: "exclude_types[]", value: "follow_request")
+
+        // Endpoint
+        XCTAssertEqual(request.path, "/api/v1/notifications")
+
+        // Method
+        XCTAssertEqual(request.method.name, "GET")
+        XCTAssertNil(request.method.httpBody)
+        XCTAssertEqual(request.method.queryItems?.count, 2)
+        XCTAssertTrue(request.method.queryItems!.contains(expectedMention))
+        XCTAssertTrue(request.method.queryItems!.contains(expectedFollowRequest))
+    }
 
     func testNotification() {
         let request = Notifications.notification(id: "42")

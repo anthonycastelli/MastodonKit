@@ -13,9 +13,14 @@ public enum Notifications {
     /// Fetches a user's notifications.
     ///
     /// - Parameter range: The bounds used when requesting data from Mastodon.
+    /// - Parameter excludingTypes: Notification types to exclude
     /// - Returns: Request for `[Notification]`.
-    public static func all(range: RequestRange = .default) -> Request<[Notification]> {
-        let parameters = range.parameters(limit: between(1, and: 15, default: 30))
+    public static func all(range: RequestRange = .default, excludingTypes: [NotificationType] = []) -> Request<[Notification]> {
+        var parameters: [Parameter] = []
+        if let ranges = range.parameters(limit: between(1, and: 15, default: 30)) {
+            parameters.append(contentsOf: ranges)
+        }
+        parameters.append(contentsOf: excludingTypes.parameters())
         let method = HTTPMethod.get(.parameters(parameters))
 
         return Request<[Notification]>(path: "/api/v1/notifications", method: method)

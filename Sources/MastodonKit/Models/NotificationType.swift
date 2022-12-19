@@ -19,14 +19,22 @@ public enum NotificationType: String, Codable, Hashable {
     case follow
     /// When a user posts a status
     case status
-    /// A poll notification
+    /// A poll you have voted in or created has ended
     case poll
-    /// Update status type
+    /// A status you interacted with has been edited
     case update
+    /// Someone requested to follow you
+    case followRequest = "follow_request"
 }
 
 extension NotificationType: CaseIterable { }
 
 extension NotificationType: Identifiable {
     public var id: NotificationType { self }
+}
+
+extension Array where Element == NotificationType {
+    func parameters() -> [Parameter] {
+        return self.map({ Parameter(name: "exclude_types[]", value: $0.rawValue) })
+    }
 }

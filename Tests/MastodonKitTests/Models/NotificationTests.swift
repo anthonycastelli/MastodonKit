@@ -14,9 +14,9 @@ class NotificationTests: XCTestCase {
         let fixture = try! Fixture.load(fileName: "Fixtures/Notification.json")
         let notification = try? MastodonKit.Notification.decode(data: fixture)
 
-        XCTAssertEqual(notification?.id, "42")
+        XCTAssertEqual(notification?.id, "157")
         XCTAssertEqual(notification?.type, NotificationType.favourite)
-        XCTAssertEqual(notification?.createdAt.timeIntervalSince1970, 1482239655.132)
+        XCTAssertEqual(notification?.createdAt.timeIntervalSince1970, 1671405719.587)
         XCTAssertNotNil(notification?.account)
         XCTAssertNotNil(notification?.status)
     }
